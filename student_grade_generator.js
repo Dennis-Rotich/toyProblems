@@ -25,6 +25,7 @@ function gradeGenerator(){
     //if the input is not within the range of the graded values    
     else{console.log('Not a valid grade')}    
 };
+gradeGenerator();
 
 
 
