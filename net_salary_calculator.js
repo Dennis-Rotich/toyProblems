@@ -1,11 +1,22 @@
-// A function that calculates the net pay based on the arious deduction and gross pay
+// A function that calculates the net pay based on the various deduction and gross pay
 function netSalaryCalculator(){
     //A variable that allows users to input into the terminal
     const prompt = require('prompt-sync')();
     //A variable that stores the users input on gross pay
     let basicSalary = parseFloat(prompt('Enter your basic salary:'));
-    //A variable that stores users input on their pensionable pay
-    let pensionPay = parseInt(prompt('Enter your pensionable pay:'));
+    //Declare a variable which will store users Pensionable pay
+    let pensionPay;
+    //Loop to ensure user inputs a valid value for the pensionable pay
+    while(true){
+        pensionPay = parseInt(prompt('Enter your pensionable pay:'));
+        if(pensionPay <= 18000){
+            break;
+        }
+        else{console.log('Input a valid Pensionable pay in accordance to NSSF rates');
+             continue;
+        }
+    }
+    
     //Function that calculates the users PAYE based on their gross pay input
     function payeeRates(){
         if(basicSalary <= 24000){return(basicSalary * 0.10);}
